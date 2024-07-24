@@ -37,17 +37,17 @@ const Body = () => {
                         a durable rubber outer sole, they'll withstand everything the weather can offer.
                     </p>
                     <div className="prices-area">
-                        <div>
-                            <span>
+                        <div className="discounted-price">
+                            <h2>
                                 $125.00
-                            </span>
+                            </h2>
                             <div>
-                            
+                                50%
                             </div>
                         </div>
-                        <span>
+                        <h5 className="original-price">
                             $250.00
-                        </span>
+                        </h5>
                     </div>
                     <div className="cart-buttons-container">
                         <div className="modify-cart">

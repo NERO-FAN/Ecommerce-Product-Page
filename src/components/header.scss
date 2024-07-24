@@ -1,0 +1,43 @@
+.header-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.0125em solid hsl(220, 14%, 75%);
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+
+  .left-header {
+    width: 50%;
+    display: flex;
+    column-gap: 10%;
+    align-items: center;
+
+    h1 {
+      font-size: 1.75em;
+    }
+
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .right-header {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 7.5%;
+
+    img:nth-child(1) {
+      width: 3.5%;
+    }
+
+    img:nth-child(2) {
+      width: 8.5%;
+    }
+  }
+}

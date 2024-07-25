@@ -16,6 +16,20 @@ body {
   padding: 0;
 }
 
+@font-face {
+  font-family: 'Kumbh Sans';
+  src: url('../src/fonts/KumbhSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Kumbh Sans';
+  src: url('../src/fonts/KumbhSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

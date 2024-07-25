@@ -33,21 +33,23 @@ const Body = () => {
                         Fall Limited Edition Sneakers
                     </h1>
                     <p>
-                        These low profile sneakers are your perfect casual wear companion. Featuring
+                        These low-profile sneakers are your perfect casual wear companion. Featuring
                         a durable rubber outer sole, they'll withstand everything the weather can offer.
                     </p>
                     <div className="prices-area">
                         <div className="discounted-price">
-                            <h2>
+                            <h2 className="current-price">
                                 $125.00
                             </h2>
-                            <div>
+                            <div className="discount-amount">
                                 50%
                             </div>
                         </div>
-                        <h5 className="original-price">
-                            $250.00
-                        </h5>
+                        <div className="original-price">
+                            <h4>
+                                $250.00
+                            </h4>
+                        </div>
                     </div>
                     <div className="cart-buttons-container">
                         <div className="modify-cart">

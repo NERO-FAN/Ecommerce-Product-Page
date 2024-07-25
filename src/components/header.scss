@@ -3,9 +3,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 0.0125em solid hsl(220, 14%, 75%);
+  border-bottom: 0.125em solid hsl(223, 64%, 98%);
   padding-top: 1.5%;
   padding-bottom: 1.5%;
+  font-family: 'Kumbh Sans', sans-serif;
 
   .left-header {
     width: 50%;
@@ -22,6 +23,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      color: hsl(220, 14%, 75%);
     }
   }
 

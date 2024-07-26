@@ -24,7 +24,6 @@ const Header = () => {
                 <div>
                     <img src={profileImage} alt="profile image" className="profile-image"/>
                 </div>
-            
             </div>
         </div>
     );

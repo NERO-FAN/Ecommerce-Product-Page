@@ -17,6 +17,13 @@ body {
 }
 
 @font-face {
+  font-family: 'Codec Cold';
+  src: url('../src/fonts/Codec-Cold-Trial-ExtraBold.ttf.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'Kumbh Sans';
   src: url('../src/fonts/KumbhSans-Bold.woff2') format('woff2');
   font-weight: 700;

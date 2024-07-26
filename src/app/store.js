@@ -1,18 +1,39 @@
-import { createSlice, configureStore } from '@reduxjs/toolkit';
+import { createSlice, configureStore, combineReducers } from '@reduxjs/toolkit';
+
+export const modifyItems = createSlice({
+    name: 'Item Quantity',
+    initialState: {
+        item: 0,
+    },
+    reducers: {
+        addItem: state => {state.item += 1;},
+        removeItem: state => {state.item -= 1;},
+    }
+});
 
 export const modifyCart = createSlice({
     name: 'Cart Quantity',
     initialState: {
-        count: 0,
+        cartItem: 0,
     },
     reducers: {
-        add: state => {state.count += 1;},
-        remove: state => {state.count -= 1;},
+        addCartItem: state => {state.cartItem += 1;},
+        removeCartItem: state => {state.cartItem -= 1;}
     }
+})
+
+export const { addItem, removeItem } = modifyItems.actions;
+export const { addCartItem, removeCartItem } = modifyCart.actions;
+
+// Combine reducers
+const rootReducer = combineReducers({
+    items: modifyItems.reducer,
+    cart: modifyCart.reducer
 });
 
-export const { add, remove } = modifyCart.actions
-
+// Configure the store with the combined reducer
 export const store = configureStore({
-    reducer: modifyCart.reducer
-})
+    reducer: rootReducer
+});
+
+export default store;

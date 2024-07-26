@@ -10,19 +10,44 @@ import cartImage from "../images/icon-cart.svg"
 import Remove from "../images/icon-minus.svg"
 import Add from "../images/icon-plus.svg"
 
+import { useSelector } from 'react-redux'
+import { useDispatch } from "react-redux";
+import { addItem } from "../app/store.js";
+import { removeItem } from "../app/store.js";
+import { addCartItem } from "../app/store.js";
+
 const Body = () => {
+    
+    const itemCount = useSelector(state => state.items.item);
+    const cartCount = useSelector(state => state.cart.cartItem);
+    const dispatch = useDispatch();
+    
+    const changeItems = ( operation ) => {
+        operation === 'increment' ? dispatch(addItem()) : dispatch(removeItem());
+    }
+    
+    const modifyCart = () => dispatch(addCartItem());
+    
     return (
         <div className="body-container">
             <div className="left-body">
                 <div className="selectedImage">
                     <img src={fullImage} alt="product-full-size-image" />
                 </div>
-                <div className="thumbnail-images">
-                    <img src={thumb1} alt="product-thumbnail-image"/>
-                    <img src={thumb2} alt="product-thumbnail-image"/>
-                    <img src={thumb3} alt="product-thumbnail-image"/>
-                    <img src={thumb4} alt="product-thumbnail-image"/>
-                </div>
+                <ul className="thumbnail-images">
+                    <li className="selected-thumb">
+                        <img src={thumb1} alt="product-thumbnail-image"/>
+                    </li>
+                    <li>
+                        <img src={thumb2} alt="product-thumbnail-image"/>
+                    </li>
+                    <li>
+                        <img src={thumb3} alt="product-thumbnail-image"/>
+                    </li>
+                    <li>
+                        <img src={thumb4} alt="product-thumbnail-image"/>
+                    </li>
+                </ul>
             </div>
             <div className="right-body">
                 <div className="description-container">
@@ -53,18 +78,18 @@ const Body = () => {
                     </div>
                     <div className="cart-buttons-container">
                         <div className="modify-cart">
-                            <button>
-                                <img src={Remove} alt="remove-from-cart"/>
+                            <button id="remove-button" onClick={() => changeItems('decrement')}>
+                                <img src={Remove} alt="remove-from-cart" style={{fill: 'hsl(27, 100%, 71%)'}}/>
                             </button>
-                            <span>
-                                0
+                            <span id="num-of-items">
+                                { itemCount }
                             </span>
-                            <button>
+                            <button id="add-button" onClick={() => changeItems('increment')}>
                                 <img src={Add} alt="add-to-cart"/>
                             </button>
                         </div>
-                        <button className="add-to-cart">
-                            <img src={cartImage}/>
+                        <button className="add-to-cart" onClick={() => modifyCart()}>
+                            <img src={cartImage} alt="cart-image"/>
                             Add to cart
                         </button>
                     </div>

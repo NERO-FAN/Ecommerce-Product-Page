@@ -1,45 +1,87 @@
 .header-container {
+  height: 11%;
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   border-bottom: 0.125em solid hsl(223, 64%, 98%);
-  padding-top: 1.5%;
-  padding-bottom: 1.5%;
   font-family: 'Kumbh Sans', sans-serif;
+  align-items: center;
 
   .left-header {
-    width: 50%;
+    height: 100%;
+    width: 52.5%;
     display: flex;
-    column-gap: 7.5%;
-    align-items: center;
+    column-gap: 10%;
 
     h1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 1.75em;
+      letter-spacing: -0.075em;
+      font-family: 'Codec Cold', sans-serif;
+      margin: 0;
+
+      @media (min-width: 1600px) {
+        font-size: 2em;
+      }
+
+      @media (min-width: 2400px) {
+        font-size: 3.5em;
+      }
     }
 
     nav {
+      height: 100%;
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       color: hsl(220, 14%, 75%);
+      margin-top: auto;
+      margin-bottom: auto;
+
+      a {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        @media (min-width: 2400px) {
+          font-size: 1.625em;
+        }
+      }
+
+      a:hover {
+        border-bottom: 0.25em solid orange;
+      }
     }
   }
 
   .right-header {
-    width: 50%;
+    width: 47.5%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    column-gap: 7.5%;
+    column-gap: 8.5%;
 
-    img:nth-child(1) {
+    .cart-icon {
       width: 3.5%;
+      cursor: pointer;
     }
 
-    img:nth-child(2) {
+    div {
       width: 8.5%;
+
+      .profile-image {
+        border-radius: 100%;
+        width: 100%;
+        cursor: pointer;
+      }
+
+      .profile-image:hover {
+        border: 0.20em solid hsl(27, 100%, 71%);
+      }
     }
   }
 }

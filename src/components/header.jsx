@@ -20,8 +20,11 @@ const Header = () => {
                 </nav>
             </div>
             <div className="right-header">
-                <img src={cartIcon} alt="cart icon"/>
-                <img src={profileImage} alt="profile image"/>
+                <img src={cartIcon} alt="cart icon" className="cart-icon"/>
+                <div>
+                    <img src={profileImage} alt="profile image" className="profile-image"/>
+                </div>
+            
             </div>
         </div>
     );

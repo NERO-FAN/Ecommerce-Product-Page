@@ -14,19 +14,23 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from "react-redux";
 import { addItem } from "../app/store.js";
 import { removeItem } from "../app/store.js";
+import { resetItem } from "../app/store.js";
 import { addCartItem } from "../app/store.js";
 
 const Body = () => {
     
-    const itemCount = useSelector(state => state.items.item);
-    const cartCount = useSelector(state => state.cart.cartItem);
+    const itemIndex = 12;
+    const item = useSelector(state => state.items.items).filter(item => item.id === itemIndex)[0];
     const dispatch = useDispatch();
     
     const changeItems = ( operation ) => {
-        operation === 'increment' ? dispatch(addItem()) : dispatch(removeItem());
+        operation === 'increment' ? dispatch(addItem(itemIndex)) : dispatch(removeItem(itemIndex));
     }
     
-    const modifyCart = () => dispatch(addCartItem());
+    const modifyCart = () => {
+        dispatch(addCartItem(item));
+        dispatch(resetItem(itemIndex));
+    }
     
     return (
         <div className="body-container">
@@ -79,10 +83,10 @@ const Body = () => {
                     <div className="cart-buttons-container">
                         <div className="modify-cart">
                             <button id="remove-button" onClick={() => changeItems('decrement')}>
-                                <img src={Remove} alt="remove-from-cart" style={{fill: 'hsl(27, 100%, 71%)'}}/>
+                                <img src={Remove} alt="remove-from-cart"/>
                             </button>
                             <span id="num-of-items">
-                                { itemCount }
+                                { item.numOfItems }
                             </span>
                             <button id="add-button" onClick={() => changeItems('increment')}>
                                 <img src={Add} alt="add-to-cart"/>

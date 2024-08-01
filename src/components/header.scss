@@ -1,5 +1,6 @@
 .header-container {
-  height: 11%;
+  position: relative;
+  height: 12.5%;
   width: 100%;
   display: flex;
   border-bottom: 0.125em solid hsl(223, 64%, 98%);
@@ -8,7 +9,7 @@
 
   .left-header {
     height: 100%;
-    width: 52.5%;
+    width: 50%;
     display: flex;
     column-gap: 10%;
 
@@ -23,6 +24,10 @@
 
       @media (min-width: 1600px) {
         font-size: 2em;
+      }
+
+      @media (min-width: 1920px) {
+        font-size: 2.375em;
       }
 
       @media (min-width: 2400px) {
@@ -46,41 +51,75 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
+        border-bottom: 0.25em solid transparent;
+        transition: border-color 500ms ease-in-out;
+
+        @media (min-width: 1920px) {
+          font-size: 1.25em;
+        }
 
         @media (min-width: 2400px) {
           font-size: 1.625em;
         }
       }
 
-      a:hover {
-        border-bottom: 0.25em solid orange;
+      a:hover{
+        border-color: orange;
       }
     }
   }
 
   .right-header {
-    width: 47.5%;
+    width: 50%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    column-gap: 8.5%;
+    column-gap: 7.5%;
 
-    .cart-icon {
-      width: 3.5%;
-      cursor: pointer;
+    .image-container {
+      position: relative;
+
+      .cart-value {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.675em;
+        position: absolute;
+        width: 60%;
+        height: min-content;
+        border-radius: 0.75em;
+        background-color: hsl(26, 100%, 55%);
+        z-index: 1;
+        left: 45%;
+        bottom: 65%;
+      }
+
+      button {
+        position: relative;
+        border: none;
+        background-color: white;
+
+        .cart-icon {
+          object-fit: cover;
+          cursor: pointer;
+        }
+      }
     }
 
-    div {
+    .profile-container {
       width: 8.5%;
 
       .profile-image {
         border-radius: 100%;
         width: 100%;
         cursor: pointer;
+        border: 0.20em solid transparent;
+        transition: border-color 500ms ease-in-out;
       }
 
       .profile-image:hover {
-        border: 0.20em solid hsl(27, 100%, 71%);
+        border-color: hsl(27, 100%, 71%);
       }
     }
   }

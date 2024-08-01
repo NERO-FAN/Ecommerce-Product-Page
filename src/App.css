@@ -1,4 +1,5 @@
 .app-container {
+    position: relative;
     height: 100vh;
     width: 77.5%;
     display: flex;

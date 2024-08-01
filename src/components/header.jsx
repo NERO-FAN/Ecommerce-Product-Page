@@ -1,10 +1,27 @@
-import React from 'react';
-import './header.scss'
+import React, {useEffect} from 'react';
+import './header.scss';
 
 import cartIcon from '../images/icon-cart.svg';
 import profileImage from '../images/image-avatar.png';
+import { useSelector, useDispatch } from 'react-redux';
+import { clickedCart } from "../app/store.js";
 
 const Header = () => {
+    
+    const numOfCartItems = useSelector(state => state.cart.totalItems);
+    const dispatch = useDispatch();
+    
+    const changeView = () => dispatch(clickedCart());
+    
+    useEffect(() => {
+        const whatever = document.getElementById("items in cart");
+        
+        if (numOfCartItems === 0)
+            whatever.style.display = 'none';
+        else
+            whatever.style.display = 'flex';
+    })
+    
     return (
         <div className="header-container">
             <div className="left-header">
@@ -20,8 +37,15 @@ const Header = () => {
                 </nav>
             </div>
             <div className="right-header">
-                <img src={cartIcon} alt="cart icon" className="cart-icon"/>
-                <div>
+                <div className="image-container">
+                    <div id="items in cart" className="cart-value">
+                        { numOfCartItems }
+                    </div>
+                    <button onClick={() => changeView()}>
+                        <img src={cartIcon} alt="cart icon" className="cart-icon"/>
+                    </button>
+                </div>
+                <div className="profile-container">
                     <img src={profileImage} alt="profile image" className="profile-image"/>
                 </div>
             </div>

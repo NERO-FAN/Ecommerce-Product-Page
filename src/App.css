@@ -1,9 +1,32 @@
 .app-container {
     position: relative;
     height: 100vh;
-    width: 77.5%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
+
+    .main-body {
+        position: fixed;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0%, 0%, 0%, 75%);
+
+        .main-area {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+
+            .selected-full-image {
+                border-radius: 0.75em;
+                width: 32.5%;
+                height: 55%;
+            }
+        }
+    }
 }

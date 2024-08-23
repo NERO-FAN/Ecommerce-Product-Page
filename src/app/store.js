@@ -1,3 +1,14 @@
+import thumb1 from "../images/image-product-1-thumbnail.jpg"
+import thumb2 from "../images/image-product-2-thumbnail.jpg"
+import thumb3 from "../images/image-product-3-thumbnail.jpg"
+import thumb4 from "../images/image-product-4-thumbnail.jpg"
+import fullImage from "../images/image-product-1.jpg"
+import fullImage2 from "../images/image-product-2.jpg"
+import fullImage3 from "../images/image-product-3.jpg"
+import fullImage4 from "../images/image-product-4.jpg"
+
+import { createSlice, combineReducers, configureStore } from "@reduxjs/toolkit";
+
 const exampleDB = [
     {
         id: 12,
@@ -11,8 +22,6 @@ const exampleDB = [
         numOfItems: 0
     }
 ]
-
-import { createSlice, configureStore, combineReducers } from '@reduxjs/toolkit';
 
 export const modifyItems = createSlice({
     name: 'Item Quantity',
@@ -48,7 +57,7 @@ export const modifyCart = createSlice({
     reducers: {
         addCartItem: (state, action) => {
             const newItem = action.payload;
-            
+
             if (newItem.numOfItems > 0) {
                 if (state.cartEmpty) {
                     state.cartItem.push(newItem);
@@ -72,19 +81,42 @@ export const modifyCart = createSlice({
             state.cartItem.splice(cartIndex, 1);
             if (state.cartItem.length === 0)
                 state.cartEmpty = true;
-            
+
         },
         clickedCart: state => { state.cartClicked = !state.cartClicked; }
+    }
+});
+
+export const imageViews = createSlice({
+    name: "Selected Thumbnails",
+    initialState: {
+        thumbnailImages:
+            [
+                {id: 1, thumb: thumb1, full: fullImage},
+                {id: 2, thumb: thumb2, full: fullImage2},
+                {id: 3, thumb: thumb3, full: fullImage3},
+                {id: 4, thumb: thumb4, full: fullImage4}
+            ],
+        selectedImage: fullImage
+    },
+    reducers: {
+        changeSelected: (state, action) => {
+            const imageID = parseInt(action.payload);
+            const fullImg = state.thumbnailImages.filter(image => image.id === imageID);
+            state.selectedImage = fullImg[0].full;
+        }
     }
 })
 
 export const { addItem, removeItem, resetItem } = modifyItems.actions;
 export const { addCartItem, removeCartItem, clickedCart } = modifyCart.actions;
+export const { changeSelected } = imageViews.actions;
 
 // Combine reducers
 const rootReducer = combineReducers({
     items: modifyItems.reducer,
-    cart: modifyCart.reducer
+    cart: modifyCart.reducer,
+    selectImage: imageViews.reducer
 });
 
 // Configure the store with the combined reducer

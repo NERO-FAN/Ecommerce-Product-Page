@@ -1,11 +1,6 @@
-import React from 'react';
 import './body.scss'
+import ItemImages from "./itemImages";
 
-import thumb1 from "../images/image-product-1-thumbnail.jpg"
-import thumb2 from "../images/image-product-2-thumbnail.jpg"
-import thumb3 from "../images/image-product-3-thumbnail.jpg"
-import thumb4 from "../images/image-product-4-thumbnail.jpg"
-import fullImage from "../images/image-product-1.jpg"
 import cartImage from "../images/icon-cart.svg"
 import Remove from "../images/icon-minus.svg"
 import Add from "../images/icon-plus.svg"
@@ -18,7 +13,7 @@ import { resetItem } from "../app/store.js";
 import { addCartItem } from "../app/store.js";
 
 const Body = () => {
-    
+
     const itemIndex = 12;
     const item = useSelector(state => state.items.items).filter(item => item.id === itemIndex)[0];
     const dispatch = useDispatch();
@@ -34,25 +29,7 @@ const Body = () => {
     
     return (
         <div className="body-container">
-            <div className="left-body">
-                <div className="selectedImage">
-                    <img src={fullImage} alt="product-full-size-image" />
-                </div>
-                <ul className="thumbnail-images">
-                    <li className="selected-thumb">
-                        <img src={thumb1} alt="product-thumbnail-image"/>
-                    </li>
-                    <li>
-                        <img src={thumb2} alt="product-thumbnail-image"/>
-                    </li>
-                    <li>
-                        <img src={thumb3} alt="product-thumbnail-image"/>
-                    </li>
-                    <li>
-                        <img src={thumb4} alt="product-thumbnail-image"/>
-                    </li>
-                </ul>
-            </div>
+            <ItemImages/>
             <div className="right-body">
                 <div className="description-container">
                     <h4>
